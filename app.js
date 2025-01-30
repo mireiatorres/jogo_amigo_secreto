@@ -1,6 +1,8 @@
 let listaDeAmigos = [];
 let listadeNomesSorteados = [];
 
+validarInput();
+
 // Função formatar nome inserido
 function formatarNomeInserido(nome) {
     const preposicoes = ["da", "de", "do", "dos", "das", "e"]; // Devem permanecer minúsculas
@@ -15,9 +17,18 @@ function formatarNomeInserido(nome) {
         ).join(" ");
 }
 
+// Função validarInput, não permitir inserção de números ou caracteres especiais no campo input
+function validarInput(){
+    let input = document.getElementById("amigo");
+    
+    input.addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); // Permite apenas letras e espaços
+    });
+}
+
 // Função inserir nome na lista
 function adicionarAmigo() {
-    
+
     atualizarMensagem("Digite o nome dos seus amigos");
 
     let amigoInserido = document.getElementById("amigo").value.trim();
@@ -85,6 +96,12 @@ function sortearAmigo() {
     let li = document.createElement("li");
     li.textContent = nomeSorteado;
     ul.appendChild(li);
+
+    // Limpa o resultado do sorteio após 3s
+    setTimeout(() => {
+        let ul = document.getElementById("resultado");
+        ul.innerHTML = "";
+    }, "3000" );
 
     listadeNomesSorteados.push(nomeSorteado);
     console.log("Nomes sorteados até agora:", listadeNomesSorteados);
