@@ -37,4 +37,4 @@ Este projeto permite que os usuários adicionem nomes de amigos, realizem um sor
 
 ## Acesse o Projeto
 
-[Visualizar o Sorteador de Amigos](#)
+[Visualizar o Sorteador de Amigos](https://mireiatorres.github.io/amigo_secreto/)
